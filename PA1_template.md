@@ -13,7 +13,7 @@ library(ggplot2)
 total.steps <- tapply(data$steps, data$date, FUN = sum, na.rm=TRUE)
 qplot(total.steps,binwidth=1000, xlab="total number of steps taken each day")
 ```
-![plot of chunk unnamed-chunk-1](figure/Rplot01.png)
+![plot of Rplot01](figures/Rplot01.png)
 
 ```r
 mean(total.steps, na.rm = TRUE)
@@ -35,7 +35,7 @@ plot(steps ~ interval, data = averages, type = "l",
        ylab = "average number of steps", xlab="5-min intervals",
        main="Average number of steps by 5-minutes intervals")
 ```
-![plot of chunk unnamed-chunk-2](figure/Rplot02.png) 
+![plot of Rplot02](figures/Rplot02.png) 
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -78,7 +78,7 @@ fill.data$steps <-mapply(fill.value, fill.data$steps,fill.data$interval)
 total.steps <-tapply(fill.data$steps, fill.data$date, FUN =sum)
 qplot(total.steps, binwidth = 1000,  xlab="total number of steps taken each day")
 ```
-![plot of chunk unnamed-chunk-5](figure/Rplot03.png)
+![plot of Rplot03](figures/Rplot03.png)
 
 ```r
 mean(total.steps)
@@ -116,7 +116,7 @@ interval.averages <- aggregate(steps ~ interval  + day, data = fill.data, mean)
 ggplot(interval.averages, aes(interval, steps)) + geom_line()+
   facet_grid(day ~ .) + xlab("5min interval") + ylab("number of steps")
   ```
-![plot of chunk unnamed-chunk-7](figure/Rplot04.png) 
+![plot of Rplot04](figures/Rplot04.png) 
 #another way to plot: make them in the same graph
 ```r
 plot(steps ~ interval , data = interval.averages, type = "l",
